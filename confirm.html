@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DropSweat — Email Confirmed</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F2F5FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #DDE4EF;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      background: #EBF3FF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #4589E3;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 15px;
+      color: #4B5E7A;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      background: #4589E3;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    .fallback {
+      font-size: 13px;
+      color: #8A9BB5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">✓</div>
+    <div class="logo">DropSweat</div>
+    <h1>Email Confirmed</h1>
+    <p>Your account is verified. Opening the app now...</p>
+    <a class="btn" id="open-app" href="#">Open DropSweat</a>
+    <p class="fallback">If the app doesn't open, make sure DropSweat is installed on your device.</p>
+  </div>
+
+  <script>
+    const hash = window.location.hash;
+    const appUrl = 'workoutapp://' + hash;
+
+    document.getElementById('open-app').href = appUrl;
+
+    // Auto-redirect after a short delay so the user sees the confirmation message
+    setTimeout(() => {
+      window.location.href = appUrl;
+    }, 1500);
+  </script>
+</body>
+</html>
